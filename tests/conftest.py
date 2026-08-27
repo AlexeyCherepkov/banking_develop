@@ -15,11 +15,13 @@ def wrong_account_number() -> int:
 
 @pytest.fixture
 def date_iso() -> str:
+    """Корректная дата в формате ISO"""
     return "2026-06-21"
 
 
 @pytest.fixture
 def data_list() -> list[dict]:
+    """Список словарей с корректными данными"""
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -30,6 +32,7 @@ def data_list() -> list[dict]:
 
 @pytest.fixture
 def data_list_same_data() -> list[dict]:
+    """Список словарей в одинаковой датой"""
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2018-10-14T08:21:33.419441"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
@@ -38,6 +41,7 @@ def data_list_same_data() -> list[dict]:
 
 @pytest.fixture
 def data_list_wrong_data() -> list[dict]:
+    """Список словарей в неверной датой"""
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "гггг-мм-дд"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},

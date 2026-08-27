@@ -1,5 +1,4 @@
 import pytest
-
 from src.processing import filter_by_state, sort_by_date
 
 
@@ -32,6 +31,7 @@ def test_filter_by_state_empty_list() -> None:
     ],
 )
 def test_filter_by_state_parametrize(data_list, key, count) -> None:
+    """Проверка работы filter_by_state через параметризацию"""
     assert len(filter_by_state(data_list, key)) == count
 
 

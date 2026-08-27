@@ -1,9 +1,9 @@
 import pytest
-
 from src.widget import get_date, mask_account_card
 
 
 def test_get_date(date_iso) -> None:
+    """Проверка работы get_date"""
     assert get_date(date_iso) == "21.06.2026"
 
 
@@ -33,5 +33,6 @@ def test_mask_account_card_with_mistakes() -> None:
     ],
 )
 def test_get_date_errors(wrong_date) -> None:
+    """Тест на ошибки get_date с параметризацией"""
     with pytest.raises(ValueError):
         assert get_date(wrong_date)
