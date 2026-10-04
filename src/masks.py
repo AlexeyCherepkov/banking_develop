@@ -2,12 +2,14 @@ import logging
 import os
 
 BASE_DIR = str(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA_PATH = os.path.join(BASE_DIR, "logs", "masks.log")
+LOG_PATH = os.path.join(BASE_DIR, "logs", "masks.log")
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(filename)s %(funcName)s %(levelname)s: %(message)s',
-                    filename=DATA_PATH,  # Запись логов в файл
-                    filemode='w')
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s %(filename)s %(funcName)s %(levelname)s: %(message)s",
+    filename=LOG_PATH,
+    filemode="w",
+)
 logger = logging.getLogger(__name__)
 
 
@@ -24,9 +26,9 @@ def get_mask_card_number(card_number: int | str) -> str:
             raise ValueError("Неверно введены данные карты")
 
         masked_number = (
-            f'{str_card_number[:4]} '
-            f'{str_card_number[4:6]}** **** '
-            f'{str_card_number[12:]}'
+            f"{str_card_number[:4]} "
+            f"{str_card_number[4:6]}** **** "
+            f"{str_card_number[12:]}"
         )
         logger.info("Card number has been masked")
         return masked_number

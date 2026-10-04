@@ -1,5 +1,7 @@
-from unittest.mock import patch, Mock
+from unittest.mock import patch
+
 import pytest
+
 from src.external_api import currency_conversion
 
 transaction = {
@@ -7,16 +9,13 @@ transaction = {
     "state": "EXECUTED",
     "date": "2019-05-19T12:51:49.023880",
     "operationAmount": {
-      "amount": "6381.58",
-      "currency": {
-        "name": "USD",
-        "code": "USD"
-      }
+        "amount": "6381.58",
+        "currency": {"name": "USD", "code": "USD"},
     },
     "description": "Перевод организации",
     "from": "МИР 5211277418228469",
-    "to": "Счет 58518872592028002662"
-  }
+    "to": "Счет 58518872592028002662",
+}
 
 
 @patch("requests.get")

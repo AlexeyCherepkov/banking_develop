@@ -30,4 +30,3 @@ def get_date(str_date: str) -> str:
     """
     date_format = datetime.fromisoformat(str_date)
     return date_format.strftime("%d.%m.%Y")
-
