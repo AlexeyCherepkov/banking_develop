@@ -1,11 +1,11 @@
 import json
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = str(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(BASE_DIR, "data", "operations.json")
 
 
-def get_data(track: str) -> list[dict]:
+def get_data(track="") -> list[dict]:
     """
     Считывает файл 'operation.json' из папки 'data' и десериализирует его
     """
