@@ -22,12 +22,9 @@ def get_data(track=DATA_PATH) -> list[dict]:
     logger.info("Start")
     try:
         with open(track, "r", encoding="utf-8") as file:
-            data = json.load(file)
-        logger.info("Load completed")
-        return data
+            return json.load(file)
 
-    except FileNotFoundError:
-        logger.error("File not found")
+    except (FileNotFoundError, json.JSONDecodeError):
         return []
 
     except json.JSONDecodeError as e:
