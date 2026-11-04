@@ -20,7 +20,7 @@ def test_mask_account_card() -> None:
 def test_mask_account_card_with_mistakes() -> None:
     """Проверяет mask_account_card на ошибку"""
     with pytest.raises(ValueError):
-        assert mask_account_card("")
+        assert mask_account_card("123")
 
 
 @pytest.mark.parametrize(

@@ -10,13 +10,15 @@ def mask_account_card(data: str) -> str:
     number = ""
     account_card_data = ""
 
-    for i in data:
+    for i in str(data):
         if i.isdigit():
             number += i
         else:
             account_card_data += i
 
-    if len(number) == 16:
+    if len(number) == 0:
+        return ""
+    elif len(number) == 16:
         masked_number = get_mask_card_number(number)
     else:
         masked_number = get_mask_account(number)
